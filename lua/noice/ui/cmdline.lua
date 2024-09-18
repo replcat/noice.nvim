@@ -123,7 +123,6 @@ function Cmdline:format(message, text_only)
 
   if format.icon and (format.name ~= "input" or use_input) then
     message:append(NoiceText.virtual_text(format.icon, format.icon_hl_group))
-    message:append(" ")
   end
 
   if not text_only then
