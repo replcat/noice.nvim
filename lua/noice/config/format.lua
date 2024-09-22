@@ -102,8 +102,10 @@ M.defaults = {
     hl_group = nil,
   },
   ---@class NoiceFormatOptions.spinner
+  ---@field name? Spinner
+  ---@field frames? string[]
+  ---@field interval? number
   spinner = {
-    ---@type Spinner
     name = "dots",
     hl_group = nil,
   },

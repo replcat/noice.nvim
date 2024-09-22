@@ -151,7 +151,7 @@ end
 ---@param message NoiceMessage
 ---@param opts NoiceFormatOptions.spinner
 function M.spinner(message, opts)
-  message:append(require("noice.util.spinners").spin(opts.name), opts.hl_group)
+  message:append(require("noice.util.spinners").spin(opts), opts.hl_group)
 end
 
 ---@param message NoiceMessage
