@@ -1,10 +1,13 @@
 local M = {}
 
----@param name? Spinner
-function M.spin(name)
-  name = name or "dots"
-  local spinner = M.spinners[name] or M.spinners["dots"]
-  local ms = (vim.uv or vim.loop).hrtime() / 1000000
+---@param opts NoiceFormatOptions.spinner
+function M.spin(opts)
+  local spinner = opts
+  if type(spinner.frames) ~= "table" then
+    spinner = M.spinners[opts.name] or M.spinners["dots"]
+  end
+  spinner.interval = spinner.interval or 100
+  local ms = vim.loop.hrtime() / 1000000
   local frame = math.floor(ms / spinner.interval) % #spinner.frames
   return spinner.frames[frame + 1]
 end
